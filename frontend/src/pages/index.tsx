@@ -3,9 +3,9 @@ import type { NextPage } from 'next'
 const Home: NextPage = () => {
   return (
     <div>
-      <h1 className='text-4xl'>Hello world!</h1>
+      Home
     </div>
   )
 }
 
-export default Home
+export default Home;
