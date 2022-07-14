@@ -7,7 +7,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div className="px-4 sm:px-16 2xl:px-80 min-h-[75vh]">
+    <div className="px-6 sm:px-16 2xl:px-80 min-h-[75vh]">
       <Navbar />
       {children}
     </div>
