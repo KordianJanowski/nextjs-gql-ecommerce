@@ -11,17 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string"
     },
     "price": {
-      "type": "integer"
-    },
-    "category": {
-      "type": "string"
-    },
-    "images": {
-      "type": "json"
+      "type": "biginteger"
     }
   }
 }
