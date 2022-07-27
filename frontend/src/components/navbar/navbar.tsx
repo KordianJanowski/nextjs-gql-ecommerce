@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
           <button onClick={() => setMenuExpanded(!menuExpanded)}>
             <MenuIcon className="w-8 h-8 ml-3 sm:w-9 sm:h-9" />
           </button>
-          <div className={`${ menuExpanded ? 'translate-x-0' : 'translate-x-full' } lg:hidden min-w-[14rem] w-2/5 fixed top-0 right-0 flex flex-col items-start h-full px-5 py-8 text-white transform bg-black transition-all duration-[600ms]`}>
+          <div className={`${ menuExpanded ? 'translate-x-0' : 'translate-x-full' } lg:hidden min-w-[14rem] w-2/5 fixed z-50 top-0 right-0 flex flex-col items-start h-full px-5 py-8 text-white transform bg-black transition-all duration-[600ms]`}>
             <button className='absolute w-8 h-8 top-3 right-3' onClick={() => setMenuExpanded(false)}>
               <XIcon className="w-8 h-8 sm:w-9 sm:h-9" />
             </button>
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
           <UserIcon className='w-6 h-6' />
           <p className="mx-1">Hello <span className="font-normal">Guest</span></p>
           <ChevronDownIcon className='w-5 h-5 transition-all duration-75 -rotate-90 group-hover:rotate-0' />
-          <div className='absolute right-0 hidden pt-3 top-5 group-hover:flex '>
+          <div className='absolute right-0 z-50 hidden pt-3 top-5 group-hover:flex'>
             <div className='flex flex-col items-start py-5 bg-white border rounded-lg shadow-md px-7 whitespace-nowrap'>
               <NavbarLinks />
             </div>

@@ -9,3 +9,8 @@ export interface IloginFormValues {
   email: string,
   password: string
 }
+
+export interface IsingleProductForm {
+  size: string,
+  color: string
+}
