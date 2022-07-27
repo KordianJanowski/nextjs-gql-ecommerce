@@ -12,3 +12,15 @@ body {
 * {
   @apply box-border;
 }
+
+.login-register-input {
+  @apply w-full p-5 bg-zinc-100 rounded-2xl mt-5;
+}
+
+.login-register-button {
+  @apply w-full p-5 mt-10 font-semibold text-white bg-black rounded-2xl;
+}
+
+.login-register-form {
+  @apply pb-5;
+}

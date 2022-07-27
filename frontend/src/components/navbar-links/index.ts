@@ -1,1 +1,1 @@
-export { default } from './navbar-links';
+export { default } from './navbar-links'

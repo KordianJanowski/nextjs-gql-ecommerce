@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 const useNavbar = () => {
-  const [menuExpanded, setMenuExpanded] = useState(false);
+  const [menuExpanded, setMenuExpanded] = useState(false)
 
   return {
     menuExpanded,
-    setMenuExpanded
+    setMenuExpanded,
   }
 }
 
-export default useNavbar;
+export default useNavbar

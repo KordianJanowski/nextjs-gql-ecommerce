@@ -1,13 +1,13 @@
-import { useMutation } from "@apollo/client"
-import { REGISTER } from "../../api/mutations"
-import { IregisterFormValues } from "../../types/interfaces"
+import { useMutation } from '@apollo/client'
+import { REGISTER } from '../../api/mutations'
+import { IregisterFormValues } from '../../types/interfaces'
 
 const useRegisterForm = () => {
   const formInitialValues = {
     name: '',
     surname: '',
     email: '',
-    password: ''
+    password: '',
   }
 
   const [register] = useMutation(REGISTER)
@@ -19,15 +19,15 @@ const useRegisterForm = () => {
       variables: {
         username,
         email: values.email,
-        password: values.password
-      }
+        password: values.password,
+      },
     })
   }
 
   return {
     formInitialValues,
-    handleSubmit
+    handleSubmit,
   }
 }
 
-export default useRegisterForm;
+export default useRegisterForm

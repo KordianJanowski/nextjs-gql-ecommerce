@@ -1,30 +1,30 @@
-import { useMutation } from "@apollo/client";
-import { LOGIN } from "../../api/mutations";
-import { IloginFormValues } from "../../types/interfaces";
+import { useMutation } from '@apollo/client'
+import { LOGIN } from '../../api/mutations'
+import { IloginFormValues } from '../../types/interfaces'
 
 const useLoginForm = () => {
   const formInitialValues = {
     email: '',
-    password: ''
+    password: '',
   }
 
   const [login] = useMutation(LOGIN)
 
-  const handleSubmit = (values:IloginFormValues) => {
+  const handleSubmit = (values: IloginFormValues) => {
     login({
       variables: {
         email: values.email,
-        password: values.password
-      }
-    }).then(res => {
+        password: values.password,
+      },
+    }).then((res) => {
       console.log(res)
     })
   }
 
   return {
     formInitialValues,
-    handleSubmit
+    handleSubmit,
   }
 }
 
-export default useLoginForm;
+export default useLoginForm

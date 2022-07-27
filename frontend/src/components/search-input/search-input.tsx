@@ -11,7 +11,10 @@ const SearchInput: React.FC = () => {
       className="flex flex-row items-center justify-center w-full p-1 border-2 rounded-lg lg:p-0 lg:border-0 lg:w-1/3"
     >
       <button>
-        <SearchIcon strokeWidth={1.7} className="w-5 h-5 text-gray-400 sm:w-6 sm:h-6" />
+        <SearchIcon
+          strokeWidth={1.7}
+          className="w-5 h-5 text-gray-400 sm:w-6 sm:h-6"
+        />
       </button>
       <input
         type="text"
