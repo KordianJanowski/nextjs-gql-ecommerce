@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client'
-import { REGISTER } from '../../api/mutations'
-import { IregisterFormValues } from '../../types/interfaces'
+import { REGISTER } from '@api/mutations'
+import { IregisterFormValues } from 'types/interfaces'
 
 const useRegisterForm = () => {
   const formInitialValues = {

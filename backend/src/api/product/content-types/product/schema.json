@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product"
+    "displayName": "Product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,8 +15,20 @@
     "title": {
       "type": "string"
     },
+    "brand": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
     "price": {
-      "type": "biginteger"
+      "type": "float"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
     }
   }
 }

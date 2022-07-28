@@ -14,3 +14,19 @@ export interface IsingleProductForm {
   size: string
   color: string
 }
+
+export interface IsidebarLink {
+  readableText: string,
+  slugText: string
+}
+
+export interface Iuser {
+  username: string,
+  jwtToken: string,
+  isLogged: boolean,
+}
+
+export interface IuserContext {
+  user: Iuser,
+  updateUser: (newUser: Iuser) => void
+}

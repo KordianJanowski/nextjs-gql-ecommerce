@@ -79,7 +79,7 @@ const SingleProductForm: React.FC = () => {
             </span>
             <button
               type="submit"
-              className="flex px-6 py-2 ml-auto text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600"
+              className="ml-auto default-button"
             >
               Add to cart
             </button>

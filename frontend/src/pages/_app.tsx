@@ -1,18 +1,31 @@
 import type { AppProps } from 'next/app'
-import Layout from '../components/layout'
-
-import '../styles/globals.css'
+import Head from 'next/head'
 
 import { ApolloProvider } from '@apollo/client'
-import client from '../api/apollo-client'
+import client from 'api/apollo-client'
+
+import '../styles/globals.css'
+import 'animate.css';
+
+import { UserContextProvider } from 'contexts/UserContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ApolloProvider>
+    <>
+      <Head>
+        <title>Shopping - Explore</title>
+        <meta
+          name="description"
+          content="Shopping is an ecommerce platform written using Next.js, Typescript, Apollo GraphQL and Strapi"
+        />
+      </Head>
+
+      <ApolloProvider client={client}>
+        <UserContextProvider>
+          <Component {...pageProps} />
+        </UserContextProvider>
+      </ApolloProvider>
+    </>
   )
 }
 

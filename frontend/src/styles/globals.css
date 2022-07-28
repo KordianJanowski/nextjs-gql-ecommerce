@@ -24,3 +24,7 @@ body {
 .login-register-form {
   @apply pb-5;
 }
+
+.default-button {
+  @apply flex px-6 py-2 text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600
+}

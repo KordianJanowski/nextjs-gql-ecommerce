@@ -1,12 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
+import { useUserContext } from 'contexts/UserContext'
+
 
 const NavbarLinks: React.FC = () => {
+  const { user } = useUserContext()
+
   return (
     <>
       {
-        // here will be a variable with information whether the user is logged in
-        true ? (
+        user.isLogged ? (
           <>
             <Link href="/user-account">
               <a className="my-3">My account</a>
