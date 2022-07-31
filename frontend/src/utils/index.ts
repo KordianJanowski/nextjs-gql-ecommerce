@@ -10,3 +10,7 @@ export const convertToSlug = (text:string) => {
 
   return convertedText
 }
+
+export const onlyFirstLetterUppercase = (text:string) => {
+  return text.charAt(0).toUpperCase() + text.toLowerCase().slice(1);
+}

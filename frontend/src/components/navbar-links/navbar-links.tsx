@@ -2,9 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import { useUserContext } from 'contexts/UserContext'
 
-
 const NavbarLinks: React.FC = () => {
-  const { user } = useUserContext()
+  const { user, logout } = useUserContext()
 
   return (
     <>
@@ -20,7 +19,7 @@ const NavbarLinks: React.FC = () => {
             <Link href="/user-favorites">
               <a className="my-3">Favorites</a>
             </Link>
-            <button className="my-3">Logout</button>
+            <button onClick={logout} className="my-3">Logout</button>
           </>
         ) : (
           <>

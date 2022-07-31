@@ -8,7 +8,6 @@ export const REGISTER = gql`
       jwt
       user {
         username
-        email
       }
     }
   }

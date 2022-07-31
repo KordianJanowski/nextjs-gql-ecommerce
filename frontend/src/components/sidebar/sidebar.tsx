@@ -1,18 +1,20 @@
-import { convertToSlug } from 'utils/index';
 import React from 'react'
 import Link from 'next/link';
+import { IsidebarLink } from "types/interfaces"
+
 
 interface IProps {
   title: string;
-  links: string[];
+  links?: IsidebarLink[];
 }
 
-const Sidebar: React.FC<IProps> = ({ title, links }) => {
-  const linksElement = links.map((link:string) => {
+const Sidebar: React.FC<IProps> = ({ title, links = [] }) => {
+  const linksElement = links.map((link:IsidebarLink) => {
     return (
-      <Link key={link} href={convertToSlug(link)}>
-        <a className={`py-1 my-3 hover:font-semibold ${/\p{Extended_Pictographic}/u.test(link) ? 'first-letter:mr-3 first-letter:text-lg' : ''}`}>
-          {link}
+      <Link key={link.slug} href={link.slug}>
+        <a className='py-1 my-3 text-sm hover:font-semibold'>
+          <span className='mr-2 text-lg'>{link.emoji}</span>
+          {link.title}
         </a>
       </Link>
     )
@@ -22,7 +24,11 @@ const Sidebar: React.FC<IProps> = ({ title, links }) => {
     <div className='h-max w-44'>
       <h2 className='text-3xl font-semibold'>{title}</h2>
       <div className='flex flex-col mt-5'>
-        {linksElement}
+        {
+          links.length > 0 ?
+            linksElement
+          : ''
+        }
       </div>
     </div>
   )

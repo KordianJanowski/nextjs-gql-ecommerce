@@ -3,7 +3,7 @@ import React from 'react'
 import SearchInput from '../search-input/search-input'
 import useNavbar from './navbar.hook'
 import NavbarLinks from '../navbar-links'
-
+import { useUserContext } from 'contexts/UserContext'
 import {
   UserIcon,
   ShoppingCartIcon,
@@ -12,12 +12,15 @@ import {
   XIcon,
 } from '@heroicons/react/outline'
 
+
+
 const Navbar: React.FC = () => {
   const { menuExpanded, setMenuExpanded } = useNavbar()
+  const { user } = useUserContext()
 
   return (
     <nav className="flex flex-col items-center justify-between py-4 font-semibold sm:py-6 lg:flex-row mb-14">
-      <div className="flex justify-between w-full mb-4 lg:mb-0 lg:w-1/3">
+      <div className="flex justify-between w-full mb-4 lg:w-min lg:mb-0">
         <Link href="/">
           <a className="text-2xl font-semibold sm:text-3xl">Shopping</a>
         </Link>
@@ -51,17 +54,17 @@ const Navbar: React.FC = () => {
 
       <SearchInput />
 
-      <div className="flex-row justify-end hidden w-1/3 lg:flex">
+      <div className="flex-row justify-end hidden lg:flex">
         <Link href="/cart">
-          <a className="flex flex-row items-center mx-8 cursor-pointer">
+          <a className="flex flex-row items-center mr-8 cursor-pointer">
             <ShoppingCartIcon className="w-6 h-6" />
-            <p className="ml-1">Cart: 0</p>
+            <p className="ml-1 whitespace-nowrap">Cart: 0</p>
           </a>
         </Link>
         <div className="relative flex flex-row items-center group">
           <UserIcon className="w-6 h-6" />
-          <p className="mx-1">
-            Hello <span className="font-normal">Guest</span>
+          <p className="mx-1 whitespace-nowrap">
+            Hello <span className="font-normal">{user.name}</span>
           </p>
           <ChevronDownIcon className="w-5 h-5 transition-all duration-75 -rotate-90 group-hover:rotate-0" />
           <div className="absolute right-0 z-50 hidden pt-3 top-5 group-hover:flex">

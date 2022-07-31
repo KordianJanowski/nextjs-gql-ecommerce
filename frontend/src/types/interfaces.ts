@@ -16,17 +16,29 @@ export interface IsingleProductForm {
 }
 
 export interface IsidebarLink {
-  readableText: string,
+  readableText: string
   slugText: string
 }
 
 export interface Iuser {
-  username: string,
-  jwtToken: string,
-  isLogged: boolean,
+  name: string
+  surname: string
+  jwtToken: string
+  isLogged: boolean
 }
 
 export interface IuserContext {
-  user: Iuser,
+  user: Iuser
   updateUser: (newUser: Iuser) => void
+  logout: () => void
+}
+
+export interface IsidebarLink {
+  title: string
+  emoji: string
+  slug: string
+}
+
+export interface IsidebarLinkAttributes {
+  attributes: IsidebarLink
 }
