@@ -6,8 +6,23 @@ export const GET_MAIN_CATEGORIES = gql`
       data {
         attributes {
           title
-          emoji,
+          emoji
           slug
+          description
+        }
+      }
+    }
+  }
+`
+
+export const GET_SIX_RANDOM_PRODUCTS = gql`
+  query GET_SIX_RANDOM_PRODUCTS {
+    products(pagination: { limit: 6 }) {
+      data {
+        attributes {
+          title
+          price
+          image
         }
       }
     }

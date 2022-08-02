@@ -37,8 +37,19 @@ export interface IsidebarLink {
   title: string
   emoji: string
   slug: string
+  description: string
 }
 
 export interface IsidebarLinkAttributes {
   attributes: IsidebarLink
+}
+
+export interface Iproduct {
+  title: string
+  price: number
+  image: string
+}
+
+export interface IproductAttributes {
+  attributes: Iproduct
 }

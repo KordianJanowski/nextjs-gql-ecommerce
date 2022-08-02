@@ -1,18 +1,18 @@
+import type { NextPage } from 'next'
 import Link from 'next/link'
-import React from 'react'
 import LoginForm from '../components/login-form/login-form'
 
-const login: React.FC = () => {
+const login: NextPage = () => {
   return (
-    <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full bg-gray-50">
+    <div className="login-register-container">
       <div className="relative">
         <Link href="/">
-          <a className="absolute mb-5 text-3xl font-semibold text-center -translate-x-1/2 -top-14 left-1/2">
+          <a className="login-register-page-link">
             Shopping
           </a>
         </Link>
-        <div className="py-16 px-10 md:px-16 border shadow rounded-xl w-96 md:w-[31rem] bg-white">
-          <h1 className="w-1/2 pb-5 mx-auto mb-5 text-3xl text-center border-b">
+        <div className="login-register-box">
+          <h1 className="login-register-title">
             Login
           </h1>
           <LoginForm />

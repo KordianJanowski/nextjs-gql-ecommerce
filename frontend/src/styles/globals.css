@@ -13,6 +13,32 @@ body {
   @apply box-border;
 }
 
+.default-button {
+  @apply flex px-6 py-2 text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600
+}
+
+/* LOGIN AND REGISTER */
+
+.login-register-container {
+  @apply absolute top-0 left-0 flex flex-col items-center justify-center w-full min-h-full py-20 bg-gray-50;
+}
+
+.login-register-form {
+  @apply pb-5;
+}
+
+.login-register-box {
+  @apply py-16 px-10 md:px-16 border shadow rounded-xl w-96 md:w-[31rem] bg-white;
+}
+
+.login-register-page-link {
+  @apply absolute mb-5 text-3xl font-semibold text-center -translate-x-1/2 -top-14 left-1/2;
+}
+
+.login-register-title {
+  @apply w-1/2 pb-5 mx-auto mb-5 text-3xl text-center border-b;
+}
+
 .login-register-input {
   @apply w-full p-5 bg-zinc-100 rounded-2xl mt-5;
 }
@@ -21,14 +47,14 @@ body {
   @apply w-full p-5 mt-10 font-semibold text-white bg-black rounded-2xl;
 }
 
-.login-register-form {
-  @apply pb-5;
-}
-
 .login-register-validation-text {
   @apply mt-1 ml-1 font-medium text-red-500;
 }
 
-.default-button {
-  @apply flex px-6 py-2 text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600
+.horizontal-tiles-box {
+  @apply flex flex-col w-full lg:w-3/4 xl:w-1/2 my-2 md:mx-2;
+}
+
+.vertical-tiles-box {
+  @apply flex flex-row w-full lg:w-3/4 xl:w-1/2 my-2 md:mx-2;
 }

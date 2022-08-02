@@ -12,7 +12,7 @@ const Sidebar: React.FC<IProps> = ({ title, links = [] }) => {
   const linksElement = links.map((link:IsidebarLink) => {
     return (
       <Link key={link.slug} href={link.slug}>
-        <a className='py-1 my-3 text-sm hover:font-semibold'>
+        <a className='py-1 my-3 text-sm hover:font-medium'>
           <span className='mr-2 text-lg'>{link.emoji}</span>
           {link.title}
         </a>
