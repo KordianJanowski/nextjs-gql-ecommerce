@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import LoginForm from '../components/login-form/login-form'
+import { LoginForm } from 'components'
 
 const login: NextPage = () => {
   return (

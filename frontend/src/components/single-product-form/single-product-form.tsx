@@ -1,11 +1,15 @@
 import React from 'react'
 import { ChevronDownIcon, HeartIcon } from '@heroicons/react/outline'
-import useSingleProduct from './single-product-form.hook'
+import useSingleProductForm from './single-product-form.hook'
 import { Formik, Field, Form } from 'formik'
 import { IsingleProductForm } from 'types/interfaces'
 
-const SingleProductForm: React.FC = () => {
-  const { initialValues, validationSchema, handleSubmit } = useSingleProduct()
+interface IProps {
+  price: number
+}
+
+const SingleProductForm: React.FC<IProps> = ({ price }) => {
+  const { initialValues, validationSchema, handleSubmit } = useSingleProductForm()
 
   return (
     <Formik
@@ -16,38 +20,7 @@ const SingleProductForm: React.FC = () => {
       {({ errors, touched }) => (
         <Form>
           <div className="flex items-center pb-5 mt-6 mb-5 border-b-2 border-gray-100">
-            <div className="flex">
-              <span className="mr-3">Color</span>
-              <div className="relative w-6 h-6">
-                <Field
-                  checked
-                  type="radio"
-                  name="color"
-                  value="white"
-                  className="absolute z-40 w-6 h-6 opacity-0 cursor-pointer peer"
-                />
-                <span className="absolute w-full h-full bg-white border-2 border-gray-300 rounded-full peer-checked:border-gray-700"></span>
-              </div>
-              <div className="relative w-6 h-6 mx-1">
-                <Field
-                  type="radio"
-                  name="color"
-                  value="gray"
-                  className="absolute z-40 w-6 h-6 opacity-0 cursor-pointer peer"
-                />
-                <span className="absolute w-full h-full border-2 border-gray-300 rounded-full bg-slate-700 peer-checked:border-gray-700"></span>
-              </div>
-              <div className="relative w-6 h-6">
-                <Field
-                  type="radio"
-                  name="color"
-                  value="indigo"
-                  className="absolute z-40 w-6 h-6 opacity-0 cursor-pointer peer"
-                />
-                <span className="absolute w-full h-full bg-indigo-500 border-2 border-gray-300 rounded-full peer-checked:border-gray-700"></span>
-              </div>
-            </div>
-            <div className="flex items-center ml-6">
+            <div className="flex items-center">
               <span className="mr-3">Size</span>
               <div className="relative">
                 <Field
@@ -62,7 +35,7 @@ const SingleProductForm: React.FC = () => {
                   <option disabled hidden value="">
                     -
                   </option>
-                  <option>SM</option>
+                  <option>S</option>
                   <option>M</option>
                   <option>L</option>
                   <option>XL</option>
@@ -75,7 +48,7 @@ const SingleProductForm: React.FC = () => {
           </div>
           <div className="flex">
             <span className="text-2xl font-medium text-gray-900 title-font">
-              $58.00
+              ${price}
             </span>
             <button
               type="submit"

@@ -2,12 +2,10 @@ import { IsingleProductForm } from 'types/interfaces'
 import * as Yup from 'yup'
 
 const initialValues: IsingleProductForm = {
-  color: '',
   size: '',
 }
 
 const validationSchema = Yup.object().shape({
-  color: Yup.string().required('Required'),
   size: Yup.string().required('Required'),
 })
 
@@ -15,7 +13,7 @@ const handleSubmit = (values: IsingleProductForm) => {
   console.log(values)
 }
 
-const useSingleProduct = () => {
+const useSingleProductForm = () => {
   return {
     initialValues,
     handleSubmit,
@@ -23,4 +21,4 @@ const useSingleProduct = () => {
   }
 }
 
-export default useSingleProduct
+export default useSingleProductForm

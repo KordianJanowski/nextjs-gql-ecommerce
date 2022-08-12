@@ -1,17 +1,16 @@
 import React from 'react'
 import Navbar from '../navbar/navbar'
-import PageHeader from '@components/page-header/page-header'
-import Sidebar from '@components/sidebar/sidebar'
-import { IsidebarLink } from 'types/interfaces'
+import { Icategory } from 'types/interfaces'
+import { Sidebar, PageHeader } from 'components'
 
 interface Props {
   children: React.ReactNode,
-  sidebarTitle: string,
-  headerTitle: string,
-  links?: IsidebarLink[]
+  headerTitle?: string,
+  sidebarTitle?: string,
+  links?: Icategory[]
 }
 
-const Layout: React.FC<Props> = ({ children, sidebarTitle, links = [], headerTitle }) => {
+const Layout: React.FC<Props> = ({ children, headerTitle, sidebarTitle = "Explore", links = [] }) => {
   return (
     <div className="px-6 sm:px-16 2xl:px-0 2xl:w-2/3 mx-auto min-h-[75vh] pb-40">
       <Navbar />
@@ -20,8 +19,12 @@ const Layout: React.FC<Props> = ({ children, sidebarTitle, links = [], headerTit
           title={sidebarTitle}
           links={links}
         />
-        <div className='w-full md:ml-10 mt-10 md:mt-0'>
-          <PageHeader title={headerTitle} />
+        <div className='w-full mt-10 md:ml-10 md:mt-0'>
+          {
+            headerTitle ?
+            <PageHeader title={headerTitle} />
+            : null
+          }
           {children}
         </div>
       </div>

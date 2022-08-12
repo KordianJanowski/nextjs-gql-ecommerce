@@ -13,7 +13,7 @@ export const REGISTER = gql`
   }
 `
 export const LOGIN = gql`
-  mutation ($email: String!, $password: String!) {
+  mutation LOGIN($email: String!, $password: String!) {
     login(input: { identifier: $email, password: $password }) {
       jwt
       user {

@@ -1,20 +1,20 @@
 import React from 'react'
 import Link from 'next/link';
-import { IsidebarLink } from "types/interfaces"
+import { Icategory } from "types/interfaces"
 
 
 interface IProps {
   title: string;
-  links?: IsidebarLink[];
+  links?: Icategory[];
 }
 
 const Sidebar: React.FC<IProps> = ({ title, links = [] }) => {
-  const linksElement = links.map((link:IsidebarLink) => {
+  const linksElement = links.map(({ title, emoji, slug }) => {
     return (
-      <Link key={link.slug} href={link.slug}>
+      <Link key={slug} href={!slug ? '/' : `/category/${slug}`}>
         <a className='py-1 my-3 text-sm hover:font-medium'>
-          <span className='mr-2 text-lg'>{link.emoji}</span>
-          {link.title}
+          <span className='mr-2 text-lg'>{emoji}</span>
+          {title}
         </a>
       </Link>
     )

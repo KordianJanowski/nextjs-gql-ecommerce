@@ -31,8 +31,6 @@ const useLoginForm = () => {
       },
     })
 
-    console.log(data.login)
-
     updateUser({
       name: data.login.user.username.trim().split(' ')[0],
       surname: data.login.user.username.trim().split(' ')[1],

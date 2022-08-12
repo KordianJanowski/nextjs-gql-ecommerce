@@ -12,12 +12,6 @@ export interface IloginFormValues {
 
 export interface IsingleProductForm {
   size: string
-  color: string
-}
-
-export interface IsidebarLink {
-  readableText: string
-  slugText: string
 }
 
 export interface Iuser {
@@ -33,21 +27,24 @@ export interface IuserContext {
   logout: () => void
 }
 
-export interface IsidebarLink {
+export interface Icategory {
   title: string
   emoji: string
   slug: string
   description: string
 }
 
-export interface IsidebarLinkAttributes {
-  attributes: IsidebarLink
+export interface IcategorytAttributes {
+  attributes: Icategory
 }
 
 export interface Iproduct {
   title: string
+  brand: string
+  description: string
   price: number
   image: string
+  slug: string
 }
 
 export interface IproductAttributes {
