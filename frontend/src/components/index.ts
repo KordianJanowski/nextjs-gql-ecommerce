@@ -5,6 +5,7 @@ import Navbar from "./navbar"
 import NavbarLinks from "./navbar-links"
 import PageHeader from "./page-header"
 import RegisterForm from "./register-form"
+import ProductTile from "./product-tile"
 import SearchInput from "./search-input"
 import Sidebar from "./sidebar"
 import SingleProductForm from "./single-product-form"
@@ -19,6 +20,7 @@ export {
   NavbarLinks,
   PageHeader,
   RegisterForm,
+  ProductTile,
   SearchInput,
   Sidebar,
   SingleProductForm,

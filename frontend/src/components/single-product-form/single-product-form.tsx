@@ -3,13 +3,16 @@ import { ChevronDownIcon, HeartIcon } from '@heroicons/react/outline'
 import useSingleProductForm from './single-product-form.hook'
 import { Formik, Field, Form } from 'formik'
 import { IsingleProductForm } from 'types/interfaces'
+import { useUserContext } from 'contexts/UserContext'
 
-interface IProps {
+interface Iprops {
   price: number
+  id: string
 }
 
-const SingleProductForm: React.FC<IProps> = ({ price }) => {
+const SingleProductForm: React.FC<Iprops> = ({ price, id }) => {
   const { initialValues, validationSchema, handleSubmit } = useSingleProductForm()
+  const { toggleFavoriteProduct, userFavoriteProducts } = useUserContext()
 
   return (
     <Formik
@@ -46,22 +49,25 @@ const SingleProductForm: React.FC<IProps> = ({ price }) => {
               </div>
             </div>
           </div>
-          <div className="flex">
+          <div className="flex flex-col align-center sm:flex-row sm:justify-between">
             <span className="text-2xl font-medium text-gray-900 title-font">
               ${price}
             </span>
-            <button
-              type="submit"
-              className="ml-auto default-button"
-            >
-              Add to cart
-            </button>
-            <button
-              type="button"
-              className="inline-flex items-center justify-center w-10 h-10 p-0 ml-4 text-gray-500 bg-gray-200 border-0 rounded-full"
-            >
-              <HeartIcon className="w-6 h-6 fill-gray-500" />
-            </button>
+            <div className='flex flex-row mt-2 sm:mt-0'>
+              <button
+                type="submit"
+                className="default-button"
+              >
+                Add to cart
+              </button>
+              <button
+                type="button"
+                className="inline-flex items-center justify-center w-10 h-10 p-0 ml-4 text-gray-500 transition-all bg-gray-200 border-0 rounded-full hover:bg-gray-300"
+                onClick={() => toggleFavoriteProduct(id)}
+              >
+                <HeartIcon className={`w-6 h-6 ${ userFavoriteProducts.includes(id) ? 'fill-red-500 stroke-red-600 stroke-1' : 'fill-gray-500' }`} />
+              </button>
+            </div>
           </div>
         </Form>
       )}

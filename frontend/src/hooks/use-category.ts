@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { Iproduct, IproductAttributes } from 'types/interfaces';
 import { GET_PRODUCTS_OF_CATEGORY } from 'api/queries';
 
-interface IProps {
+interface Iprops {
   slug: string
 }
 
-const useCategory = ({ slug }:IProps) => {
+const useCategory = ({ slug }:Iprops) => {
   const [products, setProducts] = useState<Iproduct[]>()
 
   const { data, loading } = useQuery(GET_PRODUCTS_OF_CATEGORY, {

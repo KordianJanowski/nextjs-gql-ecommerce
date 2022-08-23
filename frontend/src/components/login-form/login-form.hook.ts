@@ -35,6 +35,7 @@ const useLoginForm = () => {
       name: data.login.user.username.trim().split(' ')[0],
       surname: data.login.user.username.trim().split(' ')[1],
       jwtToken: data.login.jwt,
+      id: data.login.user.id,
       isLogged: true
     })
 

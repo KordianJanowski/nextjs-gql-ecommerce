@@ -18,6 +18,7 @@ export interface Iuser {
   name: string
   surname: string
   jwtToken: string
+  id: string
   isLogged: boolean
 }
 
@@ -25,13 +26,15 @@ export interface IuserContext {
   user: Iuser
   updateUser: (newUser: Iuser) => void
   logout: () => void
+  userFavoriteProducts: string[]
+  toggleFavoriteProduct: (productID:string) => void
 }
 
 export interface Icategory {
   title: string
   emoji: string
   slug: string
-  description: string
+  description?: string
 }
 
 export interface IcategorytAttributes {
@@ -39,6 +42,7 @@ export interface IcategorytAttributes {
 }
 
 export interface Iproduct {
+  id: string
   title: string
   brand: string
   description: string
@@ -48,5 +52,10 @@ export interface Iproduct {
 }
 
 export interface IproductAttributes {
+  id: string
   attributes: Iproduct
+}
+
+export interface IfavoriteProduct {
+  attributes: { product: { data: IproductAttributes } }
 }

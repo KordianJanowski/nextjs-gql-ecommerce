@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
   const { user } = useUserContext()
 
   return (
-    <nav className="flex flex-col items-center justify-between py-4 font-semibold sm:py-6 lg:flex-row mb-8 lg:mb-14">
+    <nav className="flex flex-col items-center justify-between py-4 mb-8 font-semibold sm:py-6 lg:flex-row lg:mb-14">
       <div className="flex justify-between w-full mb-4 lg:w-min lg:mb-0">
         <Link href="/">
           <a className="text-2xl font-semibold sm:text-3xl">Shopping</a>
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
             <a className="relative ">
               <ShoppingCartIcon className="h-7 w-7 sm:w-8 sm:h-8" />
               <span className="absolute flex items-center justify-center w-4 h-4 text-xs text-white bg-black rounded-full -right-1 -top-1">
-                9
+                0
               </span>
             </a>
           </Link>

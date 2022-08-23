@@ -4,23 +4,23 @@
   "info": {
     "singularName": "favorite-product",
     "pluralName": "favorite-products",
-    "displayName": "FavoriteProduct"
+    "displayName": "FavoriteProduct",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "favorite_products"
-    },
     "product": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::product.product"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

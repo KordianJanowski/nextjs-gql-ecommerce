@@ -3,16 +3,16 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import useSingleProduct from '@hooks/use-single-product'
 import { Icategory, Iproduct, IproductAttributes } from 'types/interfaces'
-import { getDefaultCategories } from 'utils'
+import { getdefaultCategoriesLinks } from 'utils'
 import { Layout, SingleProductForm } from 'components'
 import client from 'api/apollo-client'
 import { GET_PRODUCTS_SLUG, GET_PRODUCT_BY_SLUG } from 'api/queries'
 
-interface IProps {
-  defaultCategories: Icategory[]
+interface Iprops {
+  defaultCategoriesLinks: Icategory[]
 }
 
-const SingleProduct: NextPage<IProps> = ({ defaultCategories }) => {
+const SingleProduct: NextPage<Iprops> = ({ defaultCategoriesLinks }) => {
   const router = useRouter()
 
   const slugAsString = String(router.query.slug)
@@ -21,7 +21,7 @@ const SingleProduct: NextPage<IProps> = ({ defaultCategories }) => {
 
   return (
     <Layout
-      links={defaultCategories}
+      links={defaultCategoriesLinks}
     >
     {
       product && !loading ?
@@ -51,7 +51,7 @@ const SingleProduct: NextPage<IProps> = ({ defaultCategories }) => {
                   pour-over, neutra jean shorts keytar banjo tattooed umami
                   cardigan.
                 </p>
-                <SingleProductForm price={product.price} />
+                <SingleProductForm id={product.id} price={product.price} />
               </div>
             </div>
           </div>
@@ -93,12 +93,12 @@ export const getStaticProps:GetStaticProps = async ({ params }) => {
   })
 
   const product:Iproduct = data.products.data[0].attributes
-  const defaultCategories = await getDefaultCategories()
+  const defaultCategoriesLinks = await getdefaultCategoriesLinks()
 
   return {
     props: {
       product,
-      defaultCategories
+      defaultCategoriesLinks
     }
   }
 }

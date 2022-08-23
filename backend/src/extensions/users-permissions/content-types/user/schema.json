@@ -62,12 +62,6 @@
       "target": "plugin::users-permissions.role",
       "inversedBy": "users",
       "configurable": false
-    },
-    "favorite_products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::favorite-product.favorite-product",
-      "mappedBy": "users_permissions_user"
     }
   }
 }

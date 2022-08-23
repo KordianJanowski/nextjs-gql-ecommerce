@@ -51,6 +51,7 @@ const useRegisterForm = () => {
       name: data.register.user.username.trim().split(' ')[0],
       surname: data.register.user.username.trim().split(' ')[1],
       jwtToken: data.register.jwt,
+      id: data.register.user.id,
       isLogged: true
     })
 

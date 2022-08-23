@@ -1,52 +1,52 @@
 import type { NextPage } from 'next'
 import { Icategory } from 'types/interfaces'
-import { HorizontalTile, Layout, VerticalTile } from 'components'
+import { HorizontalTile, VerticalTile, Layout } from 'components'
 import useHome from '../hooks/use-home'
-import { getDefaultCategories } from 'utils'
+import { getdefaultCategoriesLinks } from 'utils'
 
-interface IProps {
-  defaultCategories: Icategory[],
+interface Iprops {
+  defaultCategoriesLinks: Icategory[],
 }
 
-const Home: NextPage<IProps> = ({ defaultCategories }) => {
+const Home: NextPage<Iprops> = ({ defaultCategoriesLinks }) => {
   const { products } = useHome()
 
   return (
     <Layout
-      headerTitle={`${defaultCategories[0].emoji} ${defaultCategories[0].title}`}
-      links={defaultCategories}
+      headerTitle={`${defaultCategoriesLinks[0].emoji} ${defaultCategoriesLinks[0].title}`}
+      links={defaultCategoriesLinks}
     >
       {
         products.length > 0 ?
         <>
           <div className='flex flex-col h-auto xl:flex-row xl:h-96'>
             <div className='horizontal-tiles-box'>
-              <HorizontalTile mainText={defaultCategories[1].title} subText={defaultCategories[1].description} emoji={defaultCategories[1].emoji} boxColor="bg-blue-200" />
-              <HorizontalTile mainText={defaultCategories[2].title} subText={defaultCategories[2].description} emoji={defaultCategories[2].emoji} boxColor="bg-violet-200"/>
+              <HorizontalTile category={defaultCategoriesLinks[1]} boxColor="bg-blue-200" />
+              <HorizontalTile category={defaultCategoriesLinks[2]} boxColor="bg-violet-200"/>
             </div>
             <div className='vertical-tiles-box'>
-              <VerticalTile title={products[0].title} price={products[0].price} image={products[0].image} />
-              <VerticalTile title={products[1].title} price={products[1].price} image={products[1].image} />
+              <VerticalTile product={products[0]} />
+              <VerticalTile product={products[1]} />
             </div>
           </div>
           <div className='flex flex-col h-auto xl:flex-row-reverse xl:h-96'>
             <div className='horizontal-tiles-box'>
-              <HorizontalTile mainText={defaultCategories[3].title} subText={defaultCategories[3].description} emoji={defaultCategories[3].emoji} boxColor="bg-yellow-200" />
-              <HorizontalTile mainText={defaultCategories[4].title} subText={defaultCategories[4].description} emoji={defaultCategories[4].emoji} boxColor="bg-rose-300"/>
+              <HorizontalTile category={defaultCategoriesLinks[3]} boxColor="bg-yellow-200" />
+              <HorizontalTile category={defaultCategoriesLinks[4]} boxColor="bg-rose-300"/>
             </div>
             <div className='vertical-tiles-box'>
-              <VerticalTile title={products[2].title} price={products[2].price} image={products[2].image} />
-              <VerticalTile title={products[3].title} price={products[3].price} image={products[3].image} />
+              <VerticalTile product={products[2]} />
+              <VerticalTile product={products[3]} />
             </div>
           </div>
           <div className='flex flex-col h-auto xl:flex-row xl:h-96'>
             <div className='horizontal-tiles-box'>
-              <HorizontalTile mainText={defaultCategories[5].title} subText={defaultCategories[5].description} emoji={defaultCategories[5].emoji} boxColor="bg-green-200" />
-              <HorizontalTile mainText={defaultCategories[6].title} subText={defaultCategories[6].description} emoji={defaultCategories[6].emoji} boxColor="bg-orange-200" />
+              <HorizontalTile category={defaultCategoriesLinks[5]} boxColor="bg-green-200" />
+              <HorizontalTile category={defaultCategoriesLinks[6]} boxColor="bg-orange-200" />
             </div>
             <div className='vertical-tiles-box'>
-              <VerticalTile title={products[4].title} price={products[4].price} image={products[4].image} />
-              <VerticalTile title={products[5].title} price={products[5].price} image={products[5].image} />
+              <VerticalTile product={products[4]} />
+              <VerticalTile product={products[5]} />
             </div>
           </div>
         </>
@@ -59,11 +59,11 @@ const Home: NextPage<IProps> = ({ defaultCategories }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const defaultCategories = await getDefaultCategories()
+  const defaultCategoriesLinks = await getdefaultCategoriesLinks()
 
   return {
     props: {
-      defaultCategories,
+      defaultCategoriesLinks,
     },
   }
 }

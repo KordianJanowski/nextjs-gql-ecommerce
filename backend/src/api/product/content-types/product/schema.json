@@ -30,6 +30,10 @@
       "target": "api::category.category",
       "inversedBy": "products"
     },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
     "image": {
       "type": "string"
     }

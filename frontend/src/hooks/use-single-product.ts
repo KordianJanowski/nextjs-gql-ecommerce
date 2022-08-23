@@ -4,11 +4,11 @@ import { GET_PRODUCT_BY_SLUG } from "api/queries";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-interface IProps {
+interface Iprops {
   slug: string
 }
 
-const useSingleProduct = ({ slug }:IProps) => {
+const useSingleProduct = ({ slug }:Iprops) => {
   const router = useRouter()
   const [product, setProduct] = useState<Iproduct>();
 
@@ -21,7 +21,13 @@ const useSingleProduct = ({ slug }:IProps) => {
   useEffect(() => {
     if(!loading && !error) {
       if(data.products.data.length > 0) {
-        const dataProduct:Iproduct = data.products.data[0].attributes
+
+        const { id, attributes } = data.products.data[0]
+        const dataProduct:Iproduct = {
+          id,
+          ...attributes
+        }
+
         setProduct(dataProduct)
       }
       else router.push('/')

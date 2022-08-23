@@ -2,18 +2,16 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import client from 'api/apollo-client';
 import { GET_CATEGORIES_SLUG, GET_CATEGORY_BY_SLUG } from 'api/queries';
 import { Icategory, IcategorytAttributes } from 'types/interfaces';
-import { getDefaultCategories } from 'utils';
-import { Layout } from 'components';
+import { getdefaultCategoriesLinks } from 'utils';
+import { Layout, ProductTile } from 'components';
 import useCategory from '@hooks/use-category';
-import React from 'react';
-import ProductTile from '@components/product-tile/product-tile';
 
-interface IProps {
+interface Iprops {
   category: Icategory,
-  defaultCategories: Icategory[]
+  defaultCategoriesLinks: Icategory[]
 }
 
-const CategoryPage: NextPage<IProps> = ({ category, defaultCategories }) => {
+const CategoryPage: NextPage<Iprops> = ({ category, defaultCategoriesLinks }) => {
   const { loading, products } = useCategory(category)
 
   const productMap = products?.map(product => {
@@ -25,7 +23,7 @@ const CategoryPage: NextPage<IProps> = ({ category, defaultCategories }) => {
   return (
     <Layout
       headerTitle={`${category.emoji} ${category.title}`}
-      links={defaultCategories}
+      links={defaultCategoriesLinks}
     >
       <div>
         {
@@ -77,12 +75,12 @@ export const getStaticProps:GetStaticProps = async ({ params }) => {
   })
 
   const category:Icategory = data.categories.data[0].attributes
-  const defaultCategories = await getDefaultCategories()
+  const defaultCategoriesLinks = await getdefaultCategoriesLinks()
 
   return {
     props: {
       category,
-      defaultCategories
+      defaultCategoriesLinks
     }
   }
 }

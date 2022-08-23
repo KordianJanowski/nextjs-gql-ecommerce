@@ -3,14 +3,12 @@ import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface IProps {
+interface Iprops {
   product: Iproduct
 }
 
-const ProductTile: React.FC<IProps> = ({ product }) => {
+const ProductTile: React.FC<Iprops> = ({ product }) => {
   const { title, price, image, brand, slug } = product
-
-  console.log(product)
 
   return (
     <div className="relative block">
