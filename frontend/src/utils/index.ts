@@ -6,7 +6,7 @@ export const onlyFirstLetterUppercase = (text:string) => {
   return text.charAt(0).toUpperCase() + text.toLowerCase().slice(1);
 }
 
-export const getdefaultCategoriesLinks = async () => {
+export const getDefaultCategoriesLinks = async () => {
   const { data } = await client.query({
     query: GET_CATEGORIES
   })

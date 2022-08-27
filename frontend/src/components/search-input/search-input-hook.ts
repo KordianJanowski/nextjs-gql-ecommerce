@@ -1,17 +1,27 @@
-const useSearchInput = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+import { IsearchInputFormValues } from "types/interfaces"
+import { useRouter } from "next/router"
 
-    searchProducts()
+const useSearchInput = () => {
+  const router = useRouter()
+
+  const initialValues = {
+    searchPhrase: ''
   }
 
-  const searchProducts = () => {
-    console.log('searching for products')
+  const handleSubmit = (values: IsearchInputFormValues) => {
+
+
+    router.push({
+      pathname: '/search',
+      query: {
+        phrase: values.searchPhrase
+      }
+    })
   }
 
   return {
     handleSubmit,
-    searchProducts,
+    initialValues
   }
 }
 

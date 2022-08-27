@@ -1,23 +1,21 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { useRouter } from 'next/router'
 import Image from 'next/image'
-import useSingleProduct from '@hooks/use-single-product'
+import { useRouter } from 'next/router'
+import useProduct from '@hooks/use-product'
 import { Icategory, Iproduct, IproductAttributes } from 'types/interfaces'
-import { getdefaultCategoriesLinks } from 'utils'
-import { Layout, SingleProductForm } from 'components'
-import client from 'api/apollo-client'
 import { GET_PRODUCTS_SLUG, GET_PRODUCT_BY_SLUG } from 'api/queries'
+import client from 'api/apollo-client'
+import { Layout, SingleProductForm } from 'components'
+import { getDefaultCategoriesLinks } from 'utils'
 
 interface Iprops {
   defaultCategoriesLinks: Icategory[]
 }
 
-const SingleProduct: NextPage<Iprops> = ({ defaultCategoriesLinks }) => {
+const Product: NextPage<Iprops> = ({ defaultCategoriesLinks }) => {
   const router = useRouter()
-
   const slugAsString = String(router.query.slug)
-
-  const { loading, product } = useSingleProduct({ slug: slugAsString })
+  const { loading, product } = useProduct({ slug: slugAsString })
 
   return (
     <Layout
@@ -61,7 +59,7 @@ const SingleProduct: NextPage<Iprops> = ({ defaultCategoriesLinks }) => {
   )
 }
 
-export default SingleProduct;
+export default Product;
 
 export const getStaticPaths:GetStaticPaths = async () => {
   const { data } = await client.query({
@@ -93,7 +91,7 @@ export const getStaticProps:GetStaticProps = async ({ params }) => {
   })
 
   const product:Iproduct = data.products.data[0].attributes
-  const defaultCategoriesLinks = await getdefaultCategoriesLinks()
+  const defaultCategoriesLinks = await getDefaultCategoriesLinks()
 
   return {
     props: {

@@ -26,7 +26,7 @@ const LoginForm: React.FC = () => {
               name="password"
               type="password"
               placeholder="Password"
-              />
+            />
             {errors.password && touched.password ? <div className='login-register-validation-text'>{errors.password}</div> : null}
             <button type="submit" className="login-register-button">Login</button>
           </Form>

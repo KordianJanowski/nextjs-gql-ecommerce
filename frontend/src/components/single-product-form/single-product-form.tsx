@@ -2,7 +2,7 @@ import React from 'react'
 import { ChevronDownIcon, HeartIcon } from '@heroicons/react/outline'
 import useSingleProductForm from './single-product-form.hook'
 import { Formik, Field, Form } from 'formik'
-import { IsingleProductForm } from 'types/interfaces'
+import { IsingleProductFormValues } from 'types/interfaces'
 import { useUserContext } from 'contexts/UserContext'
 
 interface Iprops {
@@ -18,7 +18,7 @@ const SingleProductForm: React.FC<Iprops> = ({ price, id }) => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values: IsingleProductForm) => handleSubmit(values)}
+      onSubmit={(values: IsingleProductFormValues) => handleSubmit(values)}
     >
       {({ errors, touched }) => (
         <Form>

@@ -8,7 +8,7 @@ interface Iprops {
   slug: string
 }
 
-const useSingleProduct = ({ slug }:Iprops) => {
+const useProduct = ({ slug }:Iprops) => {
   const router = useRouter()
   const [product, setProduct] = useState<Iproduct>();
 
@@ -40,4 +40,4 @@ const useSingleProduct = ({ slug }:Iprops) => {
   }
 }
 
-export default useSingleProduct;
+export default useProduct;

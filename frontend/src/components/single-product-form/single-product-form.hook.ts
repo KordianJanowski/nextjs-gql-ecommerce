@@ -1,8 +1,8 @@
-import { IsingleProductForm } from 'types/interfaces'
+import { IsingleProductFormValues } from 'types/interfaces'
 import * as Yup from 'yup'
 
 const useSingleProductForm = () => {
-  const initialValues: IsingleProductForm = {
+  const initialValues: IsingleProductFormValues = {
     size: '',
   }
 
@@ -10,7 +10,7 @@ const useSingleProductForm = () => {
     size: Yup.string().required('Required'),
   })
 
-  const handleSubmit = (values: IsingleProductForm) => {
+  const handleSubmit = (values: IsingleProductFormValues) => {
     console.log(values)
   }
 

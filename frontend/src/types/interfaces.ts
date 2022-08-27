@@ -10,8 +10,12 @@ export interface IloginFormValues {
   password: string
 }
 
-export interface IsingleProductForm {
+export interface IsingleProductFormValues {
   size: string
+}
+
+export interface IsearchInputFormValues {
+  searchPhrase: string
 }
 
 export interface Iuser {

@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { Icategory } from 'types/interfaces'
 import { HorizontalTile, VerticalTile, Layout } from 'components'
 import useHome from '../hooks/use-home'
-import { getdefaultCategoriesLinks } from 'utils'
+import { getDefaultCategoriesLinks } from 'utils'
 
 interface Iprops {
   defaultCategoriesLinks: Icategory[],
@@ -59,7 +59,7 @@ const Home: NextPage<Iprops> = ({ defaultCategoriesLinks }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const defaultCategoriesLinks = await getdefaultCategoriesLinks()
+  const defaultCategoriesLinks = await getDefaultCategoriesLinks()
 
   return {
     props: {

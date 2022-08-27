@@ -42,6 +42,24 @@ export const GET_CATEGORY_BY_SLUG = gql`
   }
 `
 
+export const GET_PRODUCTS = gql`
+  query {
+    products {
+      data {
+        id
+        attributes {
+          title
+          price
+          image
+          brand
+          slug
+          description
+        }
+      }
+    }
+  }
+`
+
 export const GET_PRODUCT_BY_SLUG = gql`
   query ($slug: String!) {
     products (filters: { slug: { eq: $slug } }) {
@@ -161,6 +179,23 @@ export const GET_USER_FAVORITE_PRODUCT_ID = gql`
     ) {
       data {
         id
+      }
+    }
+  }
+`
+
+export const GET_PRODUCTS_BY_TITLE = gql`
+  query ($productTitle: String) {
+    products (filters: { title: { contains: $productTitle } }) {
+      data {
+        attributes {
+          title
+          price
+          image
+          brand
+          slug
+          description
+        }
       }
     }
   }

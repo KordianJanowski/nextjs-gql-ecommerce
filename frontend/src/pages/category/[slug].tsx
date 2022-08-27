@@ -2,7 +2,7 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import client from 'api/apollo-client';
 import { GET_CATEGORIES_SLUG, GET_CATEGORY_BY_SLUG } from 'api/queries';
 import { Icategory, IcategorytAttributes } from 'types/interfaces';
-import { getdefaultCategoriesLinks } from 'utils';
+import { getDefaultCategoriesLinks } from 'utils';
 import { Layout, ProductTile } from 'components';
 import useCategory from '@hooks/use-category';
 
@@ -75,7 +75,7 @@ export const getStaticProps:GetStaticProps = async ({ params }) => {
   })
 
   const category:Icategory = data.categories.data[0].attributes
-  const defaultCategoriesLinks = await getdefaultCategoriesLinks()
+  const defaultCategoriesLinks = await getDefaultCategoriesLinks()
 
   return {
     props: {
